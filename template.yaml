@@ -100,8 +100,6 @@ spec:
           ${{ parameters.name }}
           ${{ parameters.description }}
 
-          Esto es una prueba de una template
-
     # Una accion custom para ejecutar unos test
     # - id: github-action
     #   name: Publish
