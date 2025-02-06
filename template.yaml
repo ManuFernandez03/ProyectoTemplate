@@ -98,10 +98,9 @@ spec:
       name: Crear un README
       action: acme:file:create
       input:
+        url: ${{ parameters.repoUrl }}
         filename: README.md
-        contents: |
-          ${{ parameters.name }}
-          ${{ parameters.description }}
+        contents: ${{ parameters.description }}
 
     # Una accion custom para ejecutar unos test
     # - id: github-action
