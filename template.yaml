@@ -77,6 +77,8 @@ spec:
       action: fetch:template
       input:
         url: ./proyecto
+        copyWithoutTemplating:
+          - .github/workflows/* 
         values:
           name: ${{ parameters.name }}
           description: ${{ parameters.description }}
@@ -93,7 +95,7 @@ spec:
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
-    # Una accion extra para crear un readme
+    # Una accion extra para crear un readme (hay que mirarlo, no lo crea)
     - id: acme:file:create
       name: Crear un README
       action: acme:file:create
@@ -102,14 +104,14 @@ spec:
         filename: README.md
         contents: ${{ parameters.description }}
 
-    # Una accion custom para ejecutar unos test
-    # - id: github-action
-    #   name: Publish
-    #   action: publish:github
-    #   input:
-    #     workflowId: ci.yml
-    #     repoUrl: ${{ parameters.repoUrl }}
-    #     branchOrTagName: "main"
+    # Una accion para ejecutar un workflow (esta no es custom)
+    - id: github-action
+      name: Ejecutar test
+      action: github:actions:dispatch
+      input:
+        workflowId: ci.yml
+        repoUrl: ${{ parameters.repoUrl }}
+        branchOrTagName: "main"
 
     # The final step is to register our new component in the catalog.
     - id: register
