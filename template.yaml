@@ -105,13 +105,13 @@ spec:
         contents: ${{ parameters.description }}
 
     # Una accion para ejecutar un workflow (esta no es custom)
-    - id: github-action
-      name: Ejecutar test
-      action: github:actions:dispatch
-      input:
-        workflowId: ci.yml
-        repoUrl: ${{ parameters.repoUrl }}
-        branchOrTagName: "main"
+    # - id: github-action
+    #   name: Ejecutar test
+    #   action: github:actions:dispatch
+    #   input:
+    #     workflowId: ci.yml
+    #     repoUrl: ${{ parameters.repoUrl }}
+    #     branchOrTagName: "main"
 
     # The final step is to register our new component in the catalog.
     - id: register
