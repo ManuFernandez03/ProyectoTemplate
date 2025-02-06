@@ -31,7 +31,7 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-          ui:field: ValidateNoEspacios # Un validador custom
+          ui:field: ValidateKebabCase # Un validador custom
         description:
           title: Incluye una descripccion para el proyecto
           type: string
