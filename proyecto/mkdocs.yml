@@ -7,5 +7,5 @@ nav:
   - Endpoints and methods: endpoints.md
   - Errors: errors.md
 
-plugins:
-  - techdocs-core
+#plugins:
+#  - techdocs-core
